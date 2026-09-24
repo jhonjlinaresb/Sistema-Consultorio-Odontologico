@@ -14,17 +14,17 @@ Ingresos totales recibidos
 Número de clientes que van para extracción de dientes.
 Es necesario ordenar los clientes del consultorio odontológico en una lista ordenada por el valor de la atención de mayor a menor; posteriormente buscar en la lista ordenada un cliente con una cedula específica. El resultado de la actividad será subido a plataforma educativa.
 
-| Tipo Cliente[cite: 2] | Valor Cita[cite: 2] | Tipo Atención[cite: 2] | Valor Atención[cite: 2] |
+| Tipo Cliente | Valor Cita | Tipo Atención | Valor Atención |
 | :--- | :--- | :--- | :--- |
-| **Particular**[cite: 2] | $80.000[cite: 2] | Limpieza[cite: 2] | $60.000[cite: 2] |
-| | | Calzas[cite: 2] | $80.000[cite: 2] |
-| | | Extracción[cite: 2] | $100.000[cite: 2] |
-| | | Diagnóstico[cite: 2] | $50.000[cite: 2] |
-| **EPS**[cite: 2] | $5.000[cite: 2] | Limpieza[cite: 2] | $0[cite: 2] |
-| | | Calzas[cite: 2] | $40.000[cite: 2] |
-| | | Extracción[cite: 2] | $40.000[cite: 2] |
-| | | Diagnóstico[cite: 2] | 0[cite: 2] |
-| **Prepagada**[cite: 2] | $30.000[cite: 2] | Limpieza[cite: 2] | 0[cite: 2] |
-| | | Calzas[cite: 2] | $10.000[cite: 2] |
-| | | Extracción[cite: 2] | $10.000[cite: 2] |
-| | | Diagnóstico[cite: 2] | $0[cite: 2] |
+| **Particular** | $80.000 | Limpieza | $60.000 |
+| | | Calzas | $80.000 |
+| | | Extracción | $100.000 |
+| | | Diagnóstico | $50.000 |
+| **EPS** | $5.000 | Limpieza | $0 |
+| | | Calzas | $40.000 |
+| | | Extracción | $40.000 |
+| | | Diagnóstico | $0 |
+| **Prepagada** | $30.000 | Limpieza | $0 |
+| | | Calzas | $10.000 |
+| | | Extracción | $10.000 |
+| | | Diagnóstico | $0 |
