@@ -5,4 +5,4 @@ class Cliente(ICliente):
         super().__init__(cedula, nombre, telefono)
 
     def mostrar_informacion(self):
-        return f" Cédula: {self.cedula}, \n Nombre: {self.nombre}, \n Teléfono: {self.telefono} "
+        return f" Cédula: {self.cedula}, \n Nombre: {self.nombre}, \n Teléfono: {self.telefono} \n"
