@@ -6,6 +6,9 @@ class ICliente(ABC):
         self.nombre = nombre
         self.telefono = telefono
 
+    def tipo_cliente(self):
+        return []
+
     @abstractmethod
     def mostrar_informacion(self):
         pass
