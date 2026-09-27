@@ -4,6 +4,7 @@ from src.modelos.tipo_cliente import TipoCliente
 from src.modelos.tipo_atencion import TipoAtencion
 from src.modelos.prioridad_atencion import PrioridadAtencion
 from src.modelos.cita import Cita
+from src.modelos.consultorio import Consultorio
 
 cliente1 = Cliente(123456789, "Juan Perez", 5551234, TipoCliente.PARTICULAR)
 cliente2 = Cliente(987654321, "Maria Gomez", 5555678, TipoCliente.EPS)
@@ -38,3 +39,28 @@ cita4 = Cita(cliente4, TipoAtencion.DIAGNOSTICO, cantidad=1, prioridad=Prioridad
 valor_unitario4 = cliente4._tipo_cliente.obtener_valor_atencion(TipoAtencion.DIAGNOSTICO)
 print(f"Cita Cliente 4 (DIAGNOSTICO x{cita4.cantidad}) - Prioridad: {cita4.prioridad.value}")
 print(f"Valor servicio: {valor_unitario4 * cita4.cantidad} + precio de cita {cliente4._tipo_cliente.valor_cita} ==> TOTAL: {cita4.valor_total_cita()}\n")
+
+consultorio_doctor_XXX = Consultorio()
+consultorio_doctor_XXX.agregar_cita(cita1)
+consultorio_doctor_XXX.agregar_cita(cita2)
+consultorio_doctor_XXX.agregar_cita(cita3)
+consultorio_doctor_XXX.agregar_cita(cita4)
+
+print("\n--- ESTADÍSTICAS DEL CONSULTORIO ---\n")
+print(f"Total de clientes atendidos: {consultorio_doctor_XXX.total_clientes()}")
+print(f"Ingresos totales recibidos: {consultorio_doctor_XXX.ingresos_totales()}")
+print(f"Número de clientes para extracción: {consultorio_doctor_XXX.cantidad_extracciones()}")
+
+print("\n --- ORDENAMIENTO (MÉTODO BURBUJA DESCENDENTE) ---\n")
+consultorio_doctor_XXX.ordenar_por_valor_descendente()
+for cita in consultorio_doctor_XXX.citas:
+    print(f"Cliente: {cita.cliente.nombre}, Valor a pagar: {cita.valor_total_cita()}")
+
+print("\n --- BÚSQUEDA POR CÉDULA ---\n")
+cedula_a_buscar = 456789123 #Cédula del cliente3 Carlos Rodriguez
+cita_encontrada = consultorio_doctor_XXX.buscar_por_cedula(cedula_a_buscar)
+
+if cita_encontrada:
+    print(f"¡Cliente encontrado! Nombre: {cita_encontrada.cliente.nombre}, Tratamiento: {cita_encontrada.tipo_atencion.name}")
+else:
+    print(f"No se encontró ningún cliente con la cédula {cedula_a_buscar}.")
