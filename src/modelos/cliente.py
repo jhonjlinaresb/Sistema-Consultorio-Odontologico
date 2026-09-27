@@ -7,4 +7,10 @@ class Cliente(ICliente):
         self._tipo_cliente = tipo_cliente
 
     def mostrar_informacion(self):
-        return f" Cédula: {self.cedula}, \n Nombre: {self.nombre}, \n Teléfono: {self.telefono}, \n Tipo de cliente: {self._tipo_cliente.value} \n"
+        return (
+            f"Cédula: {self.cedula}\n"
+            f"Nombre: {self.nombre}\n"
+            f"Teléfono: {self.telefono}\n"
+            f"Tipo de Cliente: {self._tipo_cliente.nombre_tipo}\n"
+            f"Valor de la Cita: {self._tipo_cliente.valor_cita}\n"
+        )
