@@ -39,9 +39,9 @@ Es necesario ordenar los clientes del consultorio odontológico en una lista ord
 | | | Limpieza | \$0 | |
 | | | Calzas | \$40.000 | |
 | | | Extracción | \$40.000 | |
-| | | Diagnóstico | 0 | |
+| | | Diagnóstico | $0 | |
 | **Prepagada** | \$30.000 | | | |
-| | | Limpieza | 0 | |
+| | | Limpieza | $0 | |
 | | | Calzas | \$10.000 | |
 | | | Extracción | \$10.000 | |
 | | | Diagnóstico | \$0 | |
