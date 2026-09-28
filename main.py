@@ -5,6 +5,7 @@ from src.modelos.tipo_atencion import TipoAtencion
 from src.modelos.prioridad_atencion import PrioridadAtencion
 from src.modelos.cita import Cita
 from src.modelos.consultorio import Consultorio
+from src.excepciones.cantidad_invalida_error import CantidadInvalidaError
 
 cliente1 = Cliente(123456789, "Juan Perez", 5551234, TipoCliente.PARTICULAR)
 cliente2 = Cliente(987654321, "Maria Gomez", 5555678, TipoCliente.EPS)
@@ -64,3 +65,42 @@ if cita_encontrada:
     print(f"¡Cliente encontrado! Nombre: {cita_encontrada.cliente.nombre}, Tratamiento: {cita_encontrada.tipo_atencion.name}")
 else:
     print(f"No se encontró ningún cliente con la cédula {cedula_a_buscar}.")
+
+print("\n --- PRUEBA DE EXCEPCIÓN PERSONALIZADA --- \n")
+# PRUEBA 1: 2 Limpiezas
+try:
+    cita_erronea = Cita(cliente1, TipoAtencion.LIMPIEZA, cantidad=2, prioridad=PrioridadAtencion.NORMAL, fecha=date(2026, 10, 5))
+except CantidadInvalidaError as e:
+    print(f"ALERTA DEL SISTEMA: {e.mensaje}")
+
+# PRUEBA 2: 2 Diagnósticos
+try:
+    cita_erronea2 = Cita(cliente2, TipoAtencion.DIAGNOSTICO, cantidad=2, prioridad=PrioridadAtencion.NORMAL, fecha=date(2026, 10, 5))
+except CantidadInvalidaError as e:
+    print(f"ALERTA DEL SISTEMA: {e.mensaje}")
+
+# PRUEBA 3: Cantidad negativa para calzas
+try:  
+    cita_erronea3 = Cita(cliente3, TipoAtencion.CALZAS, cantidad=-1, prioridad=PrioridadAtencion.NORMAL, fecha=date(2026, 10, 5))
+except CantidadInvalidaError as e:
+    print(f"ALERTA DEL SISTEMA: {e.mensaje}")
+
+# PRUEBA 4: Cantidad cero para calzas
+try:  
+    cita_erronea4 = Cita(cliente4, TipoAtencion.CALZAS, cantidad=0, prioridad=PrioridadAtencion.NORMAL, fecha=date(2026, 10, 5))
+except CantidadInvalidaError as e:
+    print(f"ALERTA DEL SISTEMA: {e.mensaje}")
+
+#PRUEBA 5: Cantidad negativa para extracción
+try:  
+    cita_erronea5 = Cita(cliente1, TipoAtencion.EXTRACCION, cantidad=-3, prioridad=PrioridadAtencion.NORMAL, fecha=date(2026, 10, 5))
+except CantidadInvalidaError as e:
+    print(f"ALERTA DEL SISTEMA: {e.mensaje}")
+
+#PRUEBA 6: Cantidad cero para extracción
+try:
+    cita_erronea6 = Cita(cliente2, TipoAtencion.EXTRACCION, cantidad=0, prioridad=PrioridadAtencion.NORMAL, fecha=date(2026, 10, 5))
+except CantidadInvalidaError as e:
+    print(f"ALERTA DEL SISTEMA: {e.mensaje}")
+
+print("\n --- FIN DE PRUEBAS EXCEPCIONES --- \n")

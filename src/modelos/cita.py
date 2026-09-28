@@ -2,6 +2,7 @@ from datetime import date
 from src.modelos.cliente import Cliente
 from src.modelos.tipo_atencion import TipoAtencion
 from src.modelos.prioridad_atencion import PrioridadAtencion
+from src.excepciones.cantidad_invalida_error import CantidadInvalidaError
 
 class Cita:
     def __init__(self, cliente: Cliente, tipo_atencion: TipoAtencion, cantidad: int, prioridad: PrioridadAtencion, fecha: date):
@@ -14,11 +15,11 @@ class Cita:
 
     def _validar_cantidad(self, tipo_atencion: TipoAtencion, cantidad: int) -> int:
         if cantidad <= 0:
-            raise ValueError("La cantidad debe ser mayor a 0.")
+            raise CantidadInvalidaError("La cantidad debe ser mayor a 0.")
 
         if tipo_atencion in (TipoAtencion.LIMPIEZA, TipoAtencion.DIAGNOSTICO):
             if cantidad != 1:
-                raise ValueError(f"La cantidad para {tipo_atencion.name} debe ser 1.")
+                raise CantidadInvalidaError(f"La cantidad para {tipo_atencion.name} debe ser 1.")
             return 1
 
         return cantidad
